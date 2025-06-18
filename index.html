@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        .bg-gradient-custom{
+            background-image: linear-gradient(to bottom right, #0f172a, #581c87, #0f172a);
+        }
+        .gradient-text{
+            background: linear-gradient(to right, #c084fc, #ec4899); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-link:hover {
+            color: #ec4899 !important; 
+            font-weight: bold;
+            /* Change to your desired hover color */
+        }
+        .rounded-circle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.3);
+
+        }
+                .text-gradient {
+                    background: linear-gradient(to right, #a855f7, #ec4899, #ef4444);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    }
+
+                @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.5; }
+                }
+
+                .animate-pulse {
+                animation: pulse 2s infinite;
+                }
+               
+
+                #arrow:hover {
+                transform: scale(1.2);
+                color: #ec4899;
+                }
+               .gradient-text {
+    background: linear-gradient(to right, #a78bfa, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .trait-badge {
+    background: linear-gradient(to right, rgba(147, 51, 234, 0.2), rgba(236, 72, 153, 0.2));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    color: #d8b4fe;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  .card-custom {
+    background-color: rgba(30, 41, 59, 0.5);
+    border: 1px solid #334155;
+    transition: all 0.3s;
+  }
+  .card-custom:hover {
+    background-color: rgba(30, 41, 59, 0.8);
+    transform: scale(1.05);
+  }
+  .icon-style {
+    font-size: 2.5rem;
+    color: #c084fc;
+    transition: transform 0.3s;
+  }
+  .card-custom:hover .icon-style {
+    transform: scale(1.1);
+  }
+  .card-hover:hover .icon-style {
+      transform: scale(1.1);
+    }
+    .card-hover:hover {
+      background-color: rgba(30, 41, 59, 0.7) !important;
+      transform: scale(1.05);
+    }
+    .hover-effect {
+      transition: all 0.3s ease;
+    }
+    .hover-effect:hover {
+      transform: scale(1.05);
+      color: #fff;
+    }
+    .text-purple {
+      color: #c084fc;
+    }
+
+
+     .section-py {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .project-card {
+            background-color: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+            border: 1px solid #475569; /* slate-700 */
+            transition: all 0.5s ease;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            background-color: rgba(30, 41, 59, 0.8); /* slate-800/80 */
+            box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.1), 0 4px 6px -4px rgba(168, 85, 247, 0.1);
+        }
+
+        .project-card-image {
+            height: 12rem; /* h-48 */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gradient Backgrounds for Images */
+        .bg-e-commerce { background-image: linear-gradient(to bottom right, #2563eb, #9333ea); }
+        .bg-task-manager { background-image: linear-gradient(to bottom right, #22c55e, #14b8a6); }
+        .bg-weather-db { background-image: linear-gradient(to bottom right, #f97316, #dc2626); }
+        .bg-portfolio { background-image: linear-gradient(to bottom right, #9333ea, #ec4899); }
+        .bg-blog { background-image: linear-gradient(to bottom right, #4f46e5, #3b82f6); }
+        .bg-chat-app { background-image: linear-gradient(to bottom right, #ec4899, #e11d48); }
+
+        .project-card-image .overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-card-image .overlay {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card-image .links {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            opacity: 0;
+            transform: translateY(0.5rem);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-card-image .links {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .project-card .card-title {
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover .card-title {
+            color: #a855f7 !important; /* purple-400 */
+        }
+        
+        .project-card .card-text {
+            transition: color 0.3s ease;
+        }
+        
+        .project-card:hover .card-text {
+            color: #d1d5db !important; /* gray-300 */
+        }
+
+        .tech-badge {
+            background: linear-gradient(to right, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.2));
+            color: #c4b5fd; /* purple-300 */
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            font-size: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        .tech-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-outline-purple {
+            color: #c084fc; /* purple-400 */
+            border-color: #c084fc;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-purple:hover {
+            color: #ffffff;
+            background-color: #c084fc;
+            border-color: #c084fc;
+            transform: scale(1.05);
+        }
+        
+        .btn-gradient {
+            background-image: linear-gradient(to right, #9333ea, #ec4899);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+        
+        .line-clamp-3 {
+           overflow: hidden;
+           display: -webkit-box;
+           -webkit-box-orient: vertical;
+           -webkit-line-clamp: 3;
+        }
+                
+         .section-py {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        .bg-custom-dark {
+             background-color: rgba(15, 23, 42, 0.5); /* slate-900/50 */
+        }
+
+        .text-gradient {
+            background: -webkit-linear-gradient(45deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-card {
+            background-color: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+            border: 1px solid #475569; /* slate-700 */
+            transition: all 0.5s ease;
+        }
+
+        .contact-card:hover {
+            transform: scale(1.02);
+            background-color: rgba(30, 41, 59, 0.8); /* slate-800/80 */
+        }
+        
+        /* Form Styling */
+        .form-control-custom {
+            background-color: #334155; /* slate-700 */
+            border: 1px solid #475569; /* slate-600 */
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control-custom::placeholder {
+            color: #94a3b8; /* gray-400 */
+        }
+
+        .form-control-custom:focus {
+            background-color: #334155;
+            color: #ffffff;
+            border-color: #a855f7; /* purple-400 */
+            box-shadow: none;
+        }
+        
+        .form-input-wrapper {
+            transition: transform 0.3s ease;
+        }
+        
+        .form-input-wrapper:hover {
+            transform: scale(1.05);
+        }
+
+        /* Gradient Button */
+        .btn-gradient {
+            background-image: linear-gradient(to right, #9333ea, #ec4899);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-gradient:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+            box-shadow: 0 0.5rem 1rem rgba(168, 85, 247, 0.25);
+        }
+
+        /* Contact Info Link Styling */
+        .info-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: rgba(30, 41, 59, 0.5); /* slate-800/50 */
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .info-link:hover {
+            background-color: rgba(30, 41, 59, 0.8);
+            transform: scale(1.05);
+            box-shadow: 0 0.5rem 1rem rgba(168, 85, 247, 0.1);
+        }
+
+        .info-link .info-icon {
+            color: #a855f7; /* purple-400 */
+            transition: transform 0.3s ease;
+        }
+        
+        .info-link:hover .info-icon {
+            transform: scale(1.1);
+        }
+        
+        .info-link .info-title {
+            color: #94a3b8; /* gray-400 */
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+        
+        .info-link:hover .info-title {
+            color: #d1d5db; /* gray-300 */
+        }
+        
+        .info-link .info-value {
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .info-link:hover .info-value {
+            color: #a855f7; /* purple-400 */
+        }
+
+        /* Social Icons */
+        .social-icon-link {
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(30, 41, 59, 0.5);
+            border-radius: 0.5rem;
+            color: #94a3b8; /* gray-400 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-link:hover {
+            background-color: rgba(30, 41, 59, 0.8);
+            color: #a855f7; /* purple-400 */
+            transform: scale(1.1);
+            box-shadow: 0 0.5rem 1rem rgba(168, 85, 247, 0.1);
+        }
+        .social-icon-link i {
+            transition: transform 0.3s ease;
+        }
+        .social-icon-link:hover i {
+             transform: scale(1.1);
+        }
+
+        .navbar-scrolled {
+          background-color: rgba(15, 23, 42, 0.95); /* Slate-900/95 */
+          backdrop-filter: blur(4px);
+        }
+        #NavBar{
+          z-index: 100 !important;
+        }
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div name="main" class="bg-gradient-custom p-4 text-white min-vh-100 position-relative ">
+        <nav id="NavBar" class="nav d-flex mb-5 position-fixed top-0 w-100 zindex-tooltip " >
+            <h1 class="fs-3 ms-5 gradient-text fw-bold display-4 ">Portfolio </h1>
+            <ul class="nav justify-content-end ms-auto me-5">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#Navbar">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#contact">Contact</a>
+                </li>
+            </ul>       
+        </nav>
+        <div name="home" class="d-flex flex-column justify-content-center  align-items-center text-center min-vh-100" style="padding-bottom:em;">
+
+   <div class="d-flex flex-column gap-4 text-center">
+  <h1 class="display-1 fw-bold text-white lh-1 lh-md-sm">
+    Hi, I'm
+    <span class="text-gradient fw-bold">Nithin</span>
+  </h1>
+
+  <h2 class="h4 fw-light text-light fs-2">
+    BTech Student & Aspiring <span class="text-primary fw-semibold">Developer</span>
+  </h2>
+</div>
+<br>
+<p class="fs-5 mx-auto text-center" style="max-width: 768px; line-height: 1.75; color:rgb(163, 193, 193)">
+  Passionate about creating innovative solutions and building amazing web experiences.
+  Currently pursuing my BTech degree while developing cutting-edge projects.
+</p>
+    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center">
+  <button 
+    onclick="scrollToSection('projects')" 
+    class="btn btn-lg text-white px-4 py-2 fw-semibold rounded-pill "
+    style="background: linear-gradient(to right, #7e22ce, #ec4899); transition: all 0.3s ease;"
+    onmouseover="this.style.background='linear-gradient(to right, #6b21a8, #db2777)'"
+    onmouseout="this.style.background='linear-gradient(to right, #7e22ce, #ec4899)'"
+  >
+    View My Work
+  </button>
+
+  <button 
+    onclick="scrollToSection('contact')" 
+    class="btn btn-outline-primary border border-purple text-purple px-4 py-2 fw-semibold rounded-pill"
+    style="color: #a855f7; border-color: #a855f7; transition: all 0.3s ease;"
+    onmouseover="this.style.backgroundColor='#a855f7'; this.style.color='white'"
+    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#a855f7'"
+  >
+    Get In Touch
+  </button>
+
+</div>
+<div class="d-flex justify-content-center gap-4 pt-4">
+  <a href="https://github.com/NithinRavikanti" class="text-white" >
+    <i class="bi bi-github fs-4"></i>
+  </a>
+  <a href="https://www.linkedin.com/in/nithin-ravikanti-3376b0287/" class="text-white">
+    <i class="bi bi-linkedin fs-4"></i>
+  </a>
+  <a href="mailto:nithin.ravikanti@email.com" class="text-white" >
+    <i class="bi bi-envelope fs-4"></i>
+  </a>
+</div>
+
+       <div class="position-absolute bottom-0 end-0 p-3">
+            <a href="#NavBar" class="text-white " style="text-decoration: none;">
+                <i id="arrow" class="bi bi-arrow-up-circle-fill fs-1"></i>
+            </a>
+            </div>
+        </div>
+
+
+<section id="about" class="py-5 px-3 px-sm-4 px-lg-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-white mb-3">
+        About <span class="gradient-text">Me</span>
+      </h2>
+      <p class="lead text-light">
+        I'm a dedicated developer with a passion for technology and a drive to create meaningful digital experiences.
+      </p>
+    </div>
+
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-md-6">
+        <h3 class="h4 fw-bold text-white">My Journey</h3>
+        <br>
+        <p class="lead text-light">
+          My journey in technology began with curiosity about how things work, which led me to dive deep 
+          into programming and web development. I'm constantly learning and growing in this ever-evolving field.
+        </p>
+        <p class="lead text-light">
+          I believe in the power of technology to solve real-world problems and create 
+          positive impact. Every project I work on is an opportunity to learn something 
+          new and push the boundaries of what's possible.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge trait-badge rounded-pill px-3 py-2">Problem Solving</span>
+          <span class="badge trait-badge rounded-pill px-3 py-2">Team Collaboration</span>
+          <span class="badge trait-badge rounded-pill px-3 py-2">Continuous Learning</span>
+          <span class="badge trait-badge rounded-pill px-3 py-2">Innovation</span>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row g-4">
+          <div class="col-6 z-div">
+            <div class="card bg-dark border-secondary card-hover h-100 text-center">
+              <div class="card-body">
+                <div class="icon-style mb-3"><i class="bi bi-mortarboard"></i></div>
+                <h5 class="card-title text-white">Education</h5>
+                <p class="card-text text-secondary small">Continuously learning and growing in technology and innovation</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 z-div">
+            <div class="card bg-dark border-secondary card-hover h-100 text-center">
+              <div class="card-body">
+                <div class="icon-style mb-3"><i class="bi bi-code-slash"></i></div>
+                <h5 class="card-title text-white">Development</h5>
+                <p class="card-text text-secondary small">Building modern web applications with latest technologies</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 z-div">
+            <div class="card bg-dark border-secondary card-hover h-100 text-center">
+              <div class="card-body">
+                <div class="icon-style mb-3"><i class="bi bi-lightbulb"></i></div>
+                <h5 class="card-title text-white">Innovation</h5>
+                <p class="card-text text-secondary small">Always exploring new ideas and creative solutions</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 z-div">
+            <div class="card bg-dark border-secondary card-hover h-100 text-center">
+              <div class="card-body">
+                <div class="icon-style mb-3"><i class="bi bi-bullseye"></i></div>
+                <h5 class="card-title text-white">Goals</h5>
+                <p class="card-text text-secondary small">Focused on creating impactful digital solutions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="text-center mb-4">
+      <h3 class="h3 fw-bold text-white">
+        Educational <span class="gradient-text">Background</span>
+      </h3>
+    </div>
+
+    <div class="timeline">
+      <div class="row g-4">
+        <div class="col-12">
+          <div class="card card-custom p-4">
+            <h5 class="text-white">Bachelor of Technology <span class="badge bg-success ms-2">2022 - 2026</span></h5>
+            <p class="text-light">Computer Science & Engineering</p>
+            <p class="text-light mb-1"> Anurag University</p>
+            <p class="text-success"><i class="bi bi-award"></i> 9.12 CGPA</p>
+            <p class="text-light">Currently pursuing BTech with focus on software development, data structures, algorithms, and modern web technologies.</p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card card-custom p-4">
+            <h5 class="text-white">Higher Secondary Certificate <span class="badge bg-secondary ms-2">2020 - 2022</span></h5>
+            <p class="text-light">MPC</p>
+            <p class="text-light mb-1">Narayana Junior College</p>
+            <p class="text-success"><i class="bi bi-award"></i> 98.6%</p>
+            <p class="text-light">Completed with Mathematics, Physics, and Chemistry. Developed strong analytical skills.</p>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="card card-custom p-4">
+            <h5 class="text-white">Secondary School Certificate <span class="badge bg-secondary ms-2">2018 - 2020</span></h5>
+            <p class="text-light">General Studies</p>
+            <p class="text-light mb-1">Seven Hills High School</p>
+            <p class="text-success"><i class="bi bi-award"></i> 97%</p>
+            <p class="text-light">Excellent academic performance with participation in various science competitions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+
+
+
+<section id="skills" class="py-5 px-3 position-relative style="background-color: rgba(15, 23, 42, 0.5); overflow: hidden;">
+  <div class="container">
+    <div class="text-center mb-5 animate__animated animate__fadeIn">
+      <h2 class="display-5 fw-bold text-white mb-3">
+        My <span class="gradient-text">Skills</span>
+      </h2>
+      <p class="lead text-light">
+        Here are the technologies and tools I've been working with
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Frontend Development -->
+      <div class="col-md-4">
+        <div class="card card-custom text-center p-4 h-100 bg-dark text-white border-0 shadow-lg animate__animated animate__zoomIn" style="animation-delay: 0.2s">
+          <h5 class="text-purple mb-3">Frontend Development</h5>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">⚛️</div><span>React</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🟨</div><span>JavaScript</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🔷</div><span>TypeScript</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🌐</div><span>HTML/CSS</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">💨</div><span>Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend Development -->
+      <div class="col-md-4">
+        <div class="card card-custom text-center p-4 h-100 bg-dark text-white border-0 shadow-lg animate__animated animate__zoomIn" style="animation-delay: 0.4s">
+          <h5 class="text-purple mb-3">Backend Development</h5>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🟢</div><span>Node.js</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🌱</div><span>Spring Boot</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🚀</div><span>Express.js</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🍃</div><span>MongoDB</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🗃️</div><span>SQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Technologies -->
+      <div class="col-md-4">
+        <div class="card card-custom text-center p-4 h-100 bg-dark text-white border-0 shadow-lg animate__animated animate__zoomIn" style="animation-delay: 0.6s">
+          <h5 class="text-purple mb-3">Tools & Technologies</h5>
+          <div class="d-flex flex-column gap-3">
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">📝</div><span>Git</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🐳</div><span>Docker</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">☁️</div><span>AWS</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">🎨</div><span>Figma</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 hover-effect">
+              <div class="fs-3">💻</div><span>VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </section>
+
+
+
+
+
+
+  <section id="projects" class="section-py">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-4 fw-bold text-white mb-4">
+                My <span class="text-gradient">Projects</span>
+            </h2>
+            <p class="fs-5 text-secondary mx-auto" style="max-width: 48rem;">
+                Here are some of the projects I've worked on that showcase my skills and creativity
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="card project-card h-100">
+                    <div class="project-card-image bg-e-commerce">
+                        <div class="overlay"></div>
+                        <div class="links d-flex gap-2">
+                            <a href="https://github.com/NithinRavikanti/StudentManagementSystem" class="btn btn-secondary btn-sm p-2"><i class="bi bi-github"></i></a>
+                            <a href="#" class="btn btn-secondary btn-sm p-2"><i class="bi bi-box-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-white fs-4">Student Management System</h5>
+                        <p class="card-text text-secondary line-clamp-3">A Python application with GUI using Tkinter that allows login-based access to manage and maintain student details efficiently.</p>
+                        <div class="mt-auto">
+                           <div class="d-flex flex-wrap gap-2 my-4">
+                               <span class="badge rounded-pill px-3 py-2 tech-badge">Python</span>
+                    <span class="badge rounded-pill px-3 py-2 tech-badge">Tkinter</span>
+                           </div>
+                           <div class="d-flex gap-2">
+                               <a href="https://github.com/NithinRavikanti/StudentManagementSystem" class="btn btn-outline-purple w-100"><i class="bi bi-github me-2"></i>Code</a>
+                               <a href="#" class="btn btn-primary btn-gradient w-100"><i class="bi bi-box-arrow-up-right me-2"></i>Demo</a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card project-card h-100">
+                    <div class="project-card-image bg-task-manager">
+                        <div class="overlay"></div>
+                         <div class="links d-flex gap-2">
+                            <a href="https://github.com/NithinRavikanti/StudyBuddyFrontend" class="btn btn-secondary btn-sm p-2"><i class="bi bi-github"></i></a>
+                            <a href="https://study-buddy-frontend-brown.vercel.app/" class="btn btn-secondary btn-sm p-2"><i class="bi bi-box-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-white fs-4">Study Buddy</h5>
+                        <p class="card-text text-secondary line-clamp-3">>An interactive platform for students to plan, learn, relax, and stay updated. Features AI-powered academic assistance, stress relief, and more.</p>
+                         <div class="mt-auto">
+                           <div class="d-flex flex-wrap gap-2 my-4">
+                               <span class="badge rounded-pill px-3 py-2 tech-badge">React</span>
+                               <span class="badge rounded-pill px-3 py-2 tech-badge">MySql</span>
+                  
+                              
+                                <span class="badge rounded-pill px-3 py-2 tech-badge">API Integration</span>
+                               <span class="badge rounded-pill px-3 py-2 tech-badge">Spring Boot</span>
+                    <span class="badge rounded-pill px-3 py-2 tech-badge">AI Integration</span>
+                           </div>
+                           <div class="d-flex gap-2">
+                               <a href="https://github.com/NithinRavikanti/StudyBuddyFrontend" class="btn btn-outline-purple w-100"><i class="bi bi-github me-2"></i>Code</a>
+                               <a href="https://study-buddy-frontend-brown.vercel.app/" class="btn btn-primary btn-gradient w-100"><i class="bi bi-box-arrow-up-right me-2"></i>Demo</a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card project-card h-100">
+                    <div class="project-card-image bg-weather-db">
+                        <div class="overlay"></div>
+                         <div class="links d-flex gap-2">
+                            <a href="https://github.com/NithinRavikanti/SwingAWTCalculator" class="btn btn-secondary btn-sm p-2"><i class="bi bi-github"></i></a>
+                            <a href="#" class="btn btn-secondary btn-sm p-2"><i class="bi bi-box-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-white fs-4">Java Calculator</h5>
+                        <p class="card-text text-secondary line-clamp-3">A simple desktop calculator using Java AWT and Swing, enabling users to perform basic arithmetic operations with a smooth GUI.</p>
+                         <div class="mt-auto">
+                           <div class="d-flex flex-wrap gap-2 my-4">
+              
+                              
+                               <span class="badge rounded-pill px-3 py-2 tech-badge">Java</span>
+                    <span class="badge rounded-pill px-3 py-2 tech-badge">Swing</span>
+                    <span class="badge rounded-pill px-3 py-2 tech-badge">AWT</span>
+                           </div>
+                           <div class="d-flex gap-2">
+                               <a href="https://github.com/NithinRavikanti/SwingAWTCalculator" class="btn btn-outline-purple w-100"><i class="bi bi-github me-2"></i>Code</a>
+                               <a href="#" class="btn btn-primary btn-gradient w-100"><i class="bi bi-box-arrow-up-right me-2"></i>Demo</a>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section id="contact" class="section-py bg-custom-dark">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-4 fw-bold text-white mb-4">
+                Get In <span class="text-gradient">Touch</span>
+            </h2>
+            <p class="fs-5 text-secondary mx-auto" style="max-width: 48rem;">
+                I'm always open to discussing new opportunities and interesting projects
+            </p>
+        </div>
+
+        <div id="alert-placeholder"></div>
+
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="card contact-card h-100">
+                    <div class="card-header bg-transparent border-0 pt-4 px-4">
+                        <h3 class="text-white fs-2">Send me a message</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="contactForm">
+                            <div class="mb-4 form-input-wrapper">
+                                <input type="text" class="form-control form-control-lg form-control-custom" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-4 form-input-wrapper">
+                                <input type="email" class="form-control form-control-lg form-control-custom" id="email" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-4 form-input-wrapper">
+                                <textarea class="form-control form-control-lg form-control-custom" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gradient text-white w-100 py-3 fw-semibold">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 d-flex flex-column gap-5">
+                <div>
+                    <h3 class="fs-2 fw-semibold text-white mb-4">Let's connect</h3>
+                    <p class="text-secondary mb-4 fs-5">
+                        Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+                    </p>
+                </div>
+                
+                <div class="d-flex flex-column gap-3">
+                     <a href="mailto:your.email@example.com" class="info-link">
+                        <i class="bi bi-envelope-fill fs-4 info-icon"></i>
+                        <div>
+                            <p class="mb-0 info-title">Email</p>
+                            <p class="mb-0 info-value">nithin.ravikanti@gmail.com</p>
+                        </div>
+                    </a>
+                     <a href="tel:+91XXXXXXXXXX" class="info-link">
+                        <i class="bi bi-telephone-fill fs-4 info-icon"></i>
+                        <div>
+                            <p class="mb-0 info-title">Phone</p>
+                            <p class="mb-0 info-value">+91 9248394434</p>
+                        </div>
+                    </a>
+                     <a href="#" class="info-link">
+                        <i class="bi bi-geo-alt-fill fs-4 info-icon"></i>
+                        <div>
+                            <p class="mb-0 info-title">Location</p>
+                            <p class="mb-0 info-value">Hyderabad, India</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div>
+                    <h4 class="fs-4 fw-semibold text-white mb-3">Follow me</h4>
+                    <div class="d-flex gap-3">
+                        <a href="https://github.com/NithinRavikanti" aria-label="GitHub" class="social-icon-link"><i class="bi bi-github fs-5"></i></a>
+                        <a href="https://www.linkedin.com/in/nithin-ravikanti-3376b0287/" aria-label="LinkedIn" class="social-icon-link"><i class="bi bi-linkedin fs-5"></i></a>
+                        <a href="https://x.com/NithinRavikanti" aria-label="Twitter" class="social-icon-link"><i class="bi bi-twitter-x fs-5"></i></a>
+                        <a href="mailto:your.nithin.ravikanti@example.com" aria-label="Email" class="social-icon-link"><i class="bi bi-envelope-fill fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+</section>
+
+
+
+   
+    </div>
+
+
+<script>
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    
+    
+  window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("NavBar");
+  if (window.scrollY > 50) {
+    navbar.classList.add("navbar-scrolled");
+  } else {
+    navbar.classList.remove("navbar-scrolled");
+  }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>
